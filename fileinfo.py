@@ -100,3 +100,30 @@ def gjctj():
     plt.title("关键词统计图")
     plt.legend()
     plt.show()
+
+    menubar = Menu(top)
+def f2():
+    top.quit()
+def sc():
+    t1.delete(1.0,END)
+filemenu=Menu(menubar,tearoff=0)
+filemenu.add_command(label='打开',command=f1)
+filemenu.add_separator()
+filemenu.add_command(label='退出',command=f2)
+menubar.add_cascade(label='文件',menu=filemenu)
+
+editmenu=Menu(menubar,tearoff=0)
+editmenu.add_command(label='删除',command=sc)
+editmenu.add_command(label='查看单词',command=danci)
+menubar.add_cascade(label='编辑',menu=editmenu)
+
+countmenu=Menu(menubar,tearoff=0)
+countmenu.add_command(label='总词数',command=dczs)
+countmenu.add_command(label='出现过的单词数',command=dcs)
+countmenu.add_command(label='所有单词频数',command=tj)
+countmenu.add_command(label='查找单词频数',command=czdc)
+countmenu.add_command(label='关键词',command=gjctj)
+menubar.add_cascade(label='统计',menu=countmenu)
+
+top.config(menu=menubar)
+top.mainloop()
